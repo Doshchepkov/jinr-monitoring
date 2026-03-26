@@ -41,10 +41,9 @@ jinr-monitoring/
 ```
 
 
-##  Быстрый старт
+### 1. Быстрый старт
 
-### 1. Клонирование репозитория
-
+1. Клонирование репозитория
 
 git clone https://github.com/Doshchepkov/jinr-monitoring.git
 

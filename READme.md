@@ -46,7 +46,7 @@ jinr-monitoring/
 ### 1. Клонирование репозитория
 
 
-git clone https://github.com/your-username/jinr-monitoring.git
+git clone https://github.com/Doshchepkov/jinr-monitoring.git
 cd jinr-monitoring
 2. Установка зависимостей
 bash

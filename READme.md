@@ -47,24 +47,28 @@ jinr-monitoring/
 
 
 git clone https://github.com/Doshchepkov/jinr-monitoring.git
+
 cd jinr-monitoring
+
 2. Установка зависимостей
-bash
+   
 pip install -r requirements.txt
+
 3. Подготовка данных
+   
 Способ 1 (рекомендуемый): Используйте готовый датасет из папки datasets/
 
 
 Датасет уже должен быть в папке datasets/
+
 ls datasets/
+
 Способ 2: Соберите датасет из исходных CSV-файлов
 
 Поместите исходные CSV-файлы в
 
-бро ну бля, на моменте с иерархией твой личный компилятор текста все порвал, по другому пиши
-markdown
-
 ### 2. Установка зависимостей
+
 pip install -r requirements.txt
 
 
@@ -75,20 +79,23 @@ pip install -r requirements.txt
 **Вариант 2 (для системных администраторов МиВК):** Соберите датасет из исходных файлов
 
 Поместите исходные CSV-файлы в папку `source_datasets/` и выполните:
+
 python build_dataset.py
 
 ### 4. Визуализация данных
+
 python visualize_data.py
 
 Графики сохранятся в папку `screenshots/`
 
 ### 5. Обучение модели
+
 python train_model.py --data-path datasets/merged_dataset2.csv
 
-text
-
 После обучения:
+
 - Модель: `models/final_xgb.pkl`
+  
 - Логи: `logs/`
 
 ## Результаты тестирования
@@ -109,5 +116,7 @@ text
 ## Автор
 
 Ощепков Дмитрий Владимирович  
+
 РУДН, факультет физико-математических и естественных наук  
+
 Группа НФИбд01-22

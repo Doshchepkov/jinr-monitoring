@@ -41,7 +41,7 @@ jinr-monitoring/
 ```
 
 
-### 1. Быстрый старт
+### Быстрый старт
 
 1. Клонирование репозитория
 
@@ -66,12 +66,12 @@ ls datasets/
 
 Поместите исходные CSV-файлы в
 
-### 2. Установка зависимостей
+### Установка зависимостей
 
 pip install -r requirements.txt
 
 
-### 3. Подготовка данных
+### Подготовка данных
 
 **Вариант 1:** Используйте готовый датасет из папки `datasets/` (только заранее загрузите его с яндекс диска (https://disk.yandex.ru/d/5qn0X_HDYKJVMQ) и положите в папку datasets)
 
@@ -81,13 +81,13 @@ pip install -r requirements.txt
 
 python build_dataset.py
 
-### 4. Визуализация данных
+###  Визуализация данных
 
 python visualize_data.py
 
 Графики сохранятся в папку `screenshots/`
 
-### 5. Обучение модели
+### Обучение модели
 
 python train_model.py --data-path datasets/merged_dataset2.csv
 

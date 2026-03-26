@@ -85,7 +85,15 @@ python build_dataset.py
 
 python visualize_data.py
 
-Графики сохранятся в папку `screenshots/`
+После выполнения в папке `screenshots/` появятся следующие графики:
+
+| Файл | Описание |
+|------|----------|
+| `correlation_matrix.png` | Тепловая карта корреляций между всеми признаками |
+| `walk_forward_validation.png` | Визуализация разбиения данных на train/validation/test |
+| `Train_positive_episode_1.png` | Пример скачка температуры (обучающая выборка) |
+| `Validation_positive_episode_1.png` | Пример скачка температуры (валидационная выборка) |
+| `Test_positive_episode_1.png` | Пример скачка температуры (тестовая выборка) |
 
 ### 5 Обучение модели
 

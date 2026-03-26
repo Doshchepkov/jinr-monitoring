@@ -40,7 +40,56 @@ jinr-monitoring/
 └── requirements.txt # Зависимости
 ```
 
+## Документация по файлам
 
+### Корневые скрипты
+
+| Файл | Назначение | Входные данные | Выходные данные |
+|------|------------|----------------|-----------------|
+| `build_dataset.py` | Сборка объединённого датасета из исходных CSV | Файлы в `source_datasets/` | `datasets/merged_dataset2.csv` |
+| `train_model.py` | Обучение модели XGBoost с walk-forward валидацией | `datasets/merged_dataset2.csv` | `models/final_xgb.pkl`, логи в `logs/` |
+| `visualize_data.py` | Построение и сохранение графиков | `datasets/merged_dataset2.csv` | PNG файлы в `screenshots/` |
+
+### Модули src/
+
+| Файл | Назначение | Основные функции |
+|------|------------|------------------|
+| `features_main.py` | Работа с признаками | `add_time_features` — добавление временных признаков (час, день недели, синус/косинус)<br>`compute_normalization` — расчёт среднего и std для нормализации<br>`split_into_folds` — разбиение на хронологические фолды<br>`remove_highly_correlated` — удаление коррелирующих признаков |
+| `episodes.py` | Формирование эпизодов и разметка | `make_episodes` — создание окон (L, H) и разметка по правилу скачка<br>`print_stats` — вывод статистики по классам |
+| `augmentation.py` | Аугментация временных рядов | `jitter` — добавление шума<br>`scaling` — масштабирование<br>`time_warp` — деформация временной шкалы |
+| `visualization.py` | Визуализация данных | `plot_correlation_matrix` — тепловая карта корреляций<br>`plot_walk_validation` — отображение разбиения на train/val/test<br>`plot_positive_episodes` — примеры положительных эпизодов |
+| `buffer.py` | Буфер для дообучения (задел на 6П) | `PositiveBuffer` — класс для хранения положительных примеров |
+
+### Папки с данными
+
+| Папка | Содержимое | Назначение |
+|-------|------------|------------|
+| `datasets/` | `merged_dataset2.csv` | Объединённый датасет для обучения |
+| `models/` | `final_xgb.pkl` | Сохранённая модель и параметры нормализации |
+| `logs/` | `training_*.txt`, `training_results_*.csv`, `model_info_*.json` | Логи обучения, метрики, параметры модели |
+| `screenshots/` | PNG файлы | Графики для отчёта и README |
+
+### Логи и метрики
+
+После обучения в папке `logs/` создаются три типа файлов:
+
+1. **training_YYYYMMDD_HHMMSS.txt** — полный вывод консоли (параметры, процесс валидации, итоговые метрики)
+2. **training_results_YYYYMMDD_HHMMSS.csv** — таблица с результатами по фолдам:
+   - `fold` — номер фолда
+   - `thr` — оптимальный порог классификации
+   - `val_f_macro` — F-macro на валидации
+   - `test_f_macro` — F-macro на тесте
+   - `train_size`, `val_size`, `test_size` — размеры выборок
+   - `train_pos_pct` — доля положительных примеров в обучении
+   - `time_sec` — время обучения фолда
+3. **model_info_YYYYMMDD_HHMMSS.json** — параметры сохранённой модели:
+   - `feature_cols` — список признаков
+   - `n_features` — количество признаков
+   - `L`, `H`, `n` — параметры окна и порога
+   - `best_test_f_macro` — лучший результат на тесте
+   - `mean_test_f_macro` — средний результат по фолдам
+   - `timestamp` — дата обучения
+   - 
 ### 1 Быстрый старт
 
 1. Клонирование репозитория

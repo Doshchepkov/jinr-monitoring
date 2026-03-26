@@ -90,37 +90,20 @@ jinr-monitoring/
    - `mean_test_f_macro` — средний результат по фолдам
    - `timestamp` — дата обучения
    - 
-### 1 Быстрый старт
+### Быстрый старт
 
-1. Клонирование репозитория
+### 1. Клонирование репозитория
 
 git clone https://github.com/Doshchepkov/jinr-monitoring.git
 
 cd jinr-monitoring
 
-2. Установка зависимостей
-   
-pip install -r requirements.txt
-
-3. Подготовка данных
-   
-Способ 1 (рекомендуемый): Используйте готовый датасет из папки datasets/
-
-
-Датасет уже должен быть в папке datasets/
-
-ls datasets/
-
-Способ 2: Соберите датасет из исходных CSV-файлов
-
-Поместите исходные CSV-файлы в
-
-### 2  Установка зависимостей
+### 2.  Установка зависимостей
 
 pip install -r requirements.txt
 
 
-### 3 Подготовка данных
+### 3. Подготовка данных
 
 **Вариант 1:** Используйте готовый датасет из папки `datasets/` (только заранее загрузите его с яндекс диска (https://disk.yandex.ru/d/5qn0X_HDYKJVMQ) и положите в папку datasets)
 
@@ -130,7 +113,7 @@ pip install -r requirements.txt
 
 python build_dataset.py
 
-### 4 Визуализация данных
+### 4. Визуализация данных
 
 python visualize_data.py
 
@@ -144,7 +127,7 @@ python visualize_data.py
 | `Validation_positive_episode_1.png` | Пример скачка температуры (валидационная выборка) |
 | `Test_positive_episode_1.png` | Пример скачка температуры (тестовая выборка) |
 
-### 5 Обучение модели
+### 5. Обучение модели
 
 python train_model.py --data-path datasets/merged_dataset2.csv
 
@@ -154,7 +137,7 @@ python train_model.py --data-path datasets/merged_dataset2.csv
   
 - Логи: `logs/`
 
-## 6 Результаты тестирования
+## 6. Результаты тестирования
 
 ### Walk-forward валидация (5 фолдов)
 

@@ -33,7 +33,7 @@ jinr-monitoring/
 │ ├── episodes.py # Формирование эпизодов, разметка
 │ ├── augmentation.py # Аугментации (jitter, scaling, time_warp)
 │ ├── visualization.py # Визуализация
-│ └── buffer.py # Буфер для положительных примеров (для будущего API)
+│ 
 ├── train_model.py # Скрипт обучения модели
 ├── visualize_data.py # Скрипт визуализации данных
 ├── build_dataset.py # Сборка датасета из исходных CSV
